@@ -15,7 +15,6 @@ def index():
         visits = cache.incr("visits")
     except Exception:
         visits = "unavailable"
-    
     msg = "This page has been visited <strong>{}</strong> times."
     return f"<h1>GitHub Cloud Lab</h1><p>{msg.format(visits)}</p>"
 
