@@ -35,6 +35,14 @@ jobs:
           pip install pytest flask redis
           if [ -f requirements.txt ]; then pip install -r requirements.txt; fi
       - run: python -m pytest webapp/tests/ -v || echo "Tests failed, moving on..."
+      - name: Upload test results
+        uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: test-results
+          path: |
+            .pytest_cache/
+          retention-days: 7
           
   build-and-push:
     name: Build and Push Image
