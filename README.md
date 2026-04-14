@@ -62,3 +62,9 @@ Exercise 4
 
 Exercise 5
 
+<img width="1556" height="1023" alt="Снимок экрана 2026-04-13 202207" src="https://github.com/user-attachments/assets/3f0b2df4-fd8c-46b5-8e7f-73abbac82a56" />
+<img width="1548" height="534" alt="Снимок экрана 2026-04-14 222655" src="https://github.com/user-attachments/assets/ecde6a8f-9982-4b79-b00b-5bc660478a06" />
+<img width="968" height="756" alt="Снимок экрана 2026-04-14 223044" src="https://github.com/user-attachments/assets/d1c1cf73-bf57-4f63-ab37-4d8b0a73ab0e" />
+<img width="2101" height="138" alt="Снимок экрана 2026-04-14 231431" src="https://github.com/user-attachments/assets/766d89e6-e8a7-4c5a-b02b-ac4bc5eb221a" />
+<img width="568" height="180" alt="Снимок экрана 2026-04-14 231438" src="https://github.com/user-attachments/assets/dbdb064d-d868-48d5-9514-c8b94ff517c2" />
+<img width="1817" height="381" alt="Снимок экрана 2026-04-14 231633" src="https://github.com/user-attachments/assets/1e1f5bf8-f4b6-4c08-8dbb-f4001113fa48" />
