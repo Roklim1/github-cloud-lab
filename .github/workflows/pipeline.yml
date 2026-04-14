@@ -8,7 +8,7 @@ on:
 
 env:
   REGISTRY: ghcr.io
-  IMAGE_NAME: ${{ github.repository }}/webapp
+  IMAGE_NAME: ${{ github.repository }}
 
 jobs:
   lint:
@@ -32,11 +32,9 @@ jobs:
         with:
           python-version: "3.11"
       - run: |
-          pip install pytest flask redis  # Устанавливаем зависимости явно
+          pip install pytest flask redis
           if [ -f requirements.txt ]; then pip install -r requirements.txt; fi
-      - run: |
-
-          python -m pytest webapp/tests/ -v || echo "Tests failed or not found, but moving on..."
+      - run: python -m pytest webapp/tests/ -v || echo "Tests failed, moving on..."
           
   build-and-push:
     name: Build and Push Image
@@ -47,22 +45,29 @@ jobs:
       packages: write
     steps:
       - uses: actions/checkout@v4
+      
       - name: Log in to GHCR
         uses: docker/login-action@v3
         with:
           registry: ${{ env.REGISTRY }}
           username: ${{ github.actor }}
           password: ${{ secrets.GITHUB_TOKEN }}
+      
+      - name: Lowercase image name
+        run: |
+          echo "IMAGE_ID=$(echo ${{ env.IMAGE_NAME }} | tr '[:upper:]' '[:lower:]')" >> $GITHUB_ENV
+
       - name: Build and push
         uses: docker/build-push-action@v5
         with:
           context: ./webapp
           push: true
-          tags: ${{ env.REGISTRY }}/${{ env.IMAGE_NAME }}:latest
+          tags: ${{ env.REGISTRY }}/${{ env.IMAGE_ID }}/webapp:latest
+
       - name: Trivy Scan
         uses: aquasecurity/trivy-action@master
         with:
-          image-ref: ${{ env.REGISTRY }}/${{ env.IMAGE_NAME }}:latest
+          image-ref: ${{ env.REGISTRY }}/${{ env.IMAGE_ID }}/webapp:latest
           format: 'table'
           exit-code: '0'
 
