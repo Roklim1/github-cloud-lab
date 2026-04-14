@@ -20,7 +20,7 @@ jobs:
         with:
           python-version: "3.11"
       - run: pip install flake8
-      - run: flake8 webapp/ --max-line-length=120 --exit-zero
+      - run: flake8 webapp/ --exit-zero
   test:
     name: Test
     runs-on: ubuntu-latest
